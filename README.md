@@ -44,9 +44,91 @@ To select the right single-target-scenario, apply the following settings in `loo
 * Set `exec_visualization = ['show_tracks']` for track visualization.
 ### Where to find this task?
 This task involves writing code within the file `student/filter.py`
+___
 
-### Results
+## Results
 
+Single target tracking results 
+![Alt text](results_media/STEP1/Single%20target%20tracking%20results.png)
+
+___
+Step 1 RMSE 
+![Alt text](results_media/STEP1/STEP1_RMSE.png)
+
+___
+
+## Project Instructions Step 2
+### What is this task about?
+
+In Step 2 of the final project, track management will be implemented to initialize and delete tracks, set a track state, and a track score.
+
+### Task preparation
+
+In addition to the settings from Step 1, apply the following settings in `loop_over_dataset.py` :
+
+* Set `show_only_frames = [65, 100]` in order to limit the sequence to frames 65 to 100. This is the time span where a single object appears and then disappears, so we can use it for track initialization and deletion.
+* Set `configs_det.lim_y = [-5, 15]` to limit the y-range and remove other targets left and right of our target.
+
+### Where to find this task?
+
+This task involves writing code within the file `student/trackmanagement.py` . 
+___
+
+## Results
+
+Step 2 in motion
+![Alt text](results_media/STEP2/STEP2.gif)
+
+Single line RMSE plot
+![Alt text](results_media/STEP2/STEP2.png)
+___
+
+## Project Instructions Step 3
+### What is this task about?
+
+In Step 3 of the final project, a single nearest neighbor data association will be implemented to associate measurements to tracks. The project will finally move on to multi-target tracking.
+
+### Task preparation
+
+In addition to the settings from Step 2, apply the following settings in `loop_over_dataset.py` :
+
+* Select Sequence 1 (`training_segment-1005081002024129653_5313_150_5333_150_with_camera_labels.tfrecord`) by uncommenting this `line in loop_over_dataset.py` and commenting out the other sequences. This is a more complex scenario with multiple targets.
+* Set `show_only_frames = [0, 200]` in order to use the whole sequence now.
+* Set `configs_det.lim_y = [-25, 25]` to use the whole y-range including several targets.
+
+### Where to find this task?
+
+This task involves writing code within the file `student/association.py` .
+_____
+## Results
+
+Step 3 in motion 
+![Alt text](results_media/STEP3/STEP3.gif)
+![Alt text](results_media/STEP3/STEP3_1.png)
+
+Tracking result with three tracks from Sequence 1.
+![Alt text](results_media/STEP3/Tracking%20result%20with%20three%20tracks%20from%20Sequence%201.png)
+
+_____
+
+## Project Instructions Step 4
+### What is this task about?
+In Step 4 of the final project, the nonlinear camera measurement model will be implemented. The sensor fusion module for camera-lidar fusion will finally be completed.
+
+### Task preparation
+The settings are the same as for Step 3.
+
+### Where to find this task?
+This task involves writing code within the file `student/measurements.py` .
+
+______
+
+## Results
+Step 4 in motion 
+
+
+
+_______
 
 
 
